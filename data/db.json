@@ -1,0 +1,28 @@
+{
+  "books": [
+    {
+      "id": "Qo7Sre8",
+      "isbn": "1637233098672",
+      "title": "Fantastic Mr. Fox",
+      "author": "Roald Dahl",
+      "publisher": "Puffin",
+      "publishDate": "2021-11-01"
+    },
+    {
+      "isbn": 1637239634564,
+      "title": "aaa",
+      "author": "aaa",
+      "publisher": "aaaa",
+      "publishDate": "2021-11-01",
+      "id": "f7ApkZ7"
+    },
+    {
+      "isbn": 1637240617490,
+      "title": "xxx",
+      "author": "xxx",
+      "publisher": "xxxx",
+      "publishDate": "2021-11-04",
+      "id": "HHqEFY5"
+    }
+  ]
+}
