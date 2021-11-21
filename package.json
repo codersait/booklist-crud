@@ -8,6 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "proxy": "http://localhost:3000/books"
+  "license": "ISC"
+  // "proxy": "http://localhost:3000/books"
+  
 }

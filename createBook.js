@@ -1,8 +1,10 @@
 import { Book } from "./Book.js";
+const resource = 'http://localhost:3000/books/'
+// import { getBookById } from "./app.js";
+
 const form = document.querySelector('form');
-form.addEventListener('submit', createBook)
-async function createBook(e) {
-  e.preventDefault()
+const createBook = async (e) => {
+  e.preventDefault();
   const book = new Book(
     form.title.value,
     form.author.value,
@@ -19,3 +21,5 @@ async function createBook(e) {
   })
   window.location.replace('/index.html')
 }
+
+form.addEventListener('submit', createBook)

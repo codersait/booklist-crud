@@ -1,10 +1,8 @@
-const thead = document.querySelector('thead')
 const tbody = document.querySelector('tbody')
-const delButton = document.querySelector('.del')
 const resource = 'http://localhost:3000/books/'
 
 window.addEventListener('DOMContentLoaded', () => {
-  getBooks().then(displayData)
+  getBooks().then(renderData)
 })
 
 async function getBooks() {
@@ -13,29 +11,42 @@ async function getBooks() {
   return data
 }
 
-async function deleteBook(id) {
+async function deleteBookById(id) {
   await fetch(`${resource}${id}`, {
     method: 'DELETE'
   })
 }
-delButton.addEventListener('click', deleteBook)
 
-// deleteBook(1637239634564).then(getBooks).then(displayData)
-// deleteBook(1637239634564).then(() => {
-//   getBooks()
-// }).then(displayData)
 
-function displayData(data) {
+tbody.addEventListener('click', (e) => {
+  if (e.target.className == 'del') {
+    const id = +e.target.closest('tr').children[0].textContent;
+    // delete from db
+    deleteBookById(id)
+  };
+})
+tbody.addEventListener('click', (e) => {
+  if (e.target.className == 'update') {
+    const id = +e.target.closest('tr').children[0].textContent;
+    localStorage.setItem('id', id)
+  };
+})
+
+
+function renderData(data) {
   data.forEach(book => {
     tbody.innerHTML += `<tr>
+                          <td>${book.id}</td>
                           <td>${book.title}</td>
                           <td>${book.author}</td>
-                          <td>${book.isbn}</td>
                           <td>${book.publisher}</td>
                           <td>${book.publishDate}</td>
                           <td>
                             <button class="del">Delete</button>
-                            <button class="update">Update</button>
+                            <a href="updateBook.html">
+                              <button class="update">Update</button>
+                            </a>
+                            
                           </td>
                         </tr>`
   })
